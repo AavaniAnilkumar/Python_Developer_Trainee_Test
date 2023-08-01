@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+    <style>
+        .h1class{
+            text-align: center;
+            font-style: oblique;
+
+        }
+        table{
+
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+
+<body >
+    <h1 class="h1class"><u>Book Details</u></h1>
+
+
+<table class="table table-striped">
+    <thead class="table-danger">
+  <tr>
+    <th>Ttile</th>
+    <th>Author</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+
+    {% for i in data %}
+  <tr>
+   
+    <td>{{i.title}}</td>
+    <td>{{i.author}}</td>
+    <td>{{i.price}}</td>
+    <td>
+        <form action="{% url 'formedit' dataid=i.id %}">
+            <button type="submit" class="btn btn-success">
+                Edit
+              </button>
+              
+              
+            
+        </form>
+
+      
+
+      
+    </td>
+
+    <td>  <form action="{% url 'formdelete' dataid=i.id %}">
+        <button class="btn btn-danger">Delete</button>
+    </form></td>
+   
+  </tr>
+{% endfor %}
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
